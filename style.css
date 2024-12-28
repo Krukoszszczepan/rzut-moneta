@@ -1,0 +1,222 @@
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #45a049;
+    --coin-color: #FFD700;
+    --coin-shadow: #c0a800;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --card-bg: white;
+}
+
+[data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --coin-shadow: #9e7d00;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.controls {
+    margin-bottom: 30px;
+}
+
+.controls input {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.controls button {
+    padding: 8px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.controls button:hover {
+    background-color: var(--secondary-color);
+}
+
+.progress-container {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+}
+
+.coin {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 30px auto;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    animation: flip 1s linear infinite;
+}
+
+.side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--coin-color);
+    box-shadow: 0 0 10px var(--coin-shadow);
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4em;
+    color: var(--coin-shadow);
+}
+
+.front {
+    background-color: #FFD700;
+}
+
+.back {
+    background-color: #C0C0C0;
+    transform: rotateY(180deg);
+}
+
+@keyframes flip {
+    0% { transform: rotateY(0); }
+    100% { transform: rotateY(360deg); }
+}
+
+.stats {
+    margin-top: 30px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.stats-grid div {
+    background-color: var(--card-bg);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.history {
+    margin-top: 30px;
+}
+
+.history-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.history-icon {
+    font-size: 0.5em;
+    padding: 3px;
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.history-icon.heads {
+    background-color: #FFD700;
+    color: #c0a800;
+}
+
+.history-icon.tails {
+    background-color: #C0C0C0;
+    color: #808080;
+}

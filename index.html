@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symulator Rzutu Monetą</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Symulator Rzutu Monetą</h1>
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+        
+        <div class="controls">
+            <label for="simulations">Liczba rzutów:</label>
+            <input type="number" id="simulations" min="1" value="100">
+            <button id="start">Rozpocznij symulację</button>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+
+        <div class="coin" id="coin">
+            <div class="side front"><i class="fa-solid fa-dollar-sign"></i></div>
+            <div class="side back"><i class="fa-solid fa-euro-sign"></i></div>
+        </div>
+
+        <div class="stats">
+            <h2>Statystyki</h2>
+            <div class="stats-grid">
+                <div>Orły: <span id="heads-count">0</span></div>
+                <div>Reszki: <span id="tails-count">0</span></div>
+                <div>Najdłuższy ciąg orłów: <span id="max-heads-streak">0</span></div>
+                <div>Najdłuższy ciąg reszek: <span id="max-tails-streak">0</span></div>
+                <div>Średnia długość ciągów orłów: <span id="avg-heads-streak">0</span></div>
+                <div>Średnia długość ciągów reszek: <span id="avg-tails-streak">0</span></div>
+                <div>Odchylenie standardowe orłów: <span id="std-heads">0</span></div>
+                <div>Odchylenie standardowe reszek: <span id="std-tails">0</span></div>
+                <div>Prawdopodobieństwo orła: <span id="heads-prob">0%</span></div>
+                <div>Prawdopodobieństwo reszki: <span id="tails-prob">0%</span></div>
+            </div>
+        </div>
+
+        <div class="history">
+            <h2>Historia rzutów</h2>
+            <div class="history-icons" id="history-icons"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
